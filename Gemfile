@@ -24,6 +24,7 @@ end
 
 gem 'jquery-rails'
 
+#toolchain for testing
 group :development, :test do
 	gem 'rspec-rails'
 end
