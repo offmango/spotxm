@@ -1,7 +1,8 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.6'
-gem "mongo_mapper"
+# it's best practice to name a ref so later changes in master don't break your app
+gem 'mongo_mapper', :git => 'git://github.com/jnunemaker/mongomapper.git', :ref => '4d35c6704a9'
 gem "bson_ext"
 
 # Bundle edge Rails instead:
