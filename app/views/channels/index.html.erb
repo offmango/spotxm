@@ -1,5 +1,9 @@
-<%= form_for :channel, :url => { :action => "find_channel" } do |form| %>
-	<%= form.label :channel_name, 'Find Channel' %>
-	<%= form.text_field :channel_name %>
+<h1>SpotXM</h1>
+
+<p id="about-service">This service lets you find what's playing on your favorite Sirius/XM channel</p>
+
+<%= form_for :channel, method: :get do |form| %>
+	<%= form.label :name, 'Find Channel' %>
+	<%= form.text_field :name %>
 	<%= form.submit 'Find' %>
 <% end %> 
