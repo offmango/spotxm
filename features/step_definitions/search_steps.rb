@@ -6,6 +6,5 @@ end
 
 Then /^I should see the now playing info for the channel "(.*?)"$/ do |channel_name|
   	page.should have_css('#now_playing')
-  	#page.should have_no_css('form')
-    page.should have_css('#channelname', text: channel_name)
+  	page.should have_css('#channelname', text: channel_name)
 end

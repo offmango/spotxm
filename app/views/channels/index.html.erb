@@ -2,12 +2,12 @@
 
 <p id="about-service">This service lets you find what's playing on your favorite Sirius/XM channel</p>
 
-<%= form_for :channel, url: 'channels/find_channel' do |form| %>
+<%= form_for :channel, method: :get do |form| %>
 	<%= form.label :name, 'Find Channel' %>
 	<%= form.text_field :name %>
 	<%= form.submit 'Find' %>
 <% end %> 
 
 <div id = "now_playing">
-	<div id = "channelname"></div>
+	<div id = "channelname"
 </div>
