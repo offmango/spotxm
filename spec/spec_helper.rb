@@ -11,11 +11,11 @@ Spork.prefork do
     config.infer_base_class_for_anonymous_controllers = false
     config.order = "random"
     config.mock_with :mocha
-    config.around do |example|  
+    # config.around do |example|  
           # code in this block will be run around all tests
           # you can use this for setting instance variables and the like
           # example.run
-      end
+    # end
   end
 
 end
