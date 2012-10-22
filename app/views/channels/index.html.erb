@@ -4,10 +4,33 @@
 
 <%= form_for :channel, method: :get do |form| %>
 	<%= form.label :name, 'Find Channel' %>
-	<%= form.text_field :name %>
+	<%= form.text_field :number %>
 	<%= form.submit 'Find' %>
 <% end %> 
 
-<div id = "now_playing">
-	<div id = "channelname"
-</div>
+<% if @tracks.present? %>
+	<h2>Now Playing</h2>
+
+	<table id="now_playing">
+		<thead>
+			<tr>
+				<th>Channel Number</th>
+				<th>Channel</th>
+				<th>Track</th>
+				<th>Artist</th>
+				<th>Album</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @tracks.each do |track| %>
+				<tr class = "track_info" id = <%= "#{track[:channel_number]}"%>>
+					<td><%= track[:channel_number] %></td>
+					<td><%= track[:channel_name] %></td>
+					<td><%= track[:track_name] %></td>
+					<td><%= track[:artist_name] %></td>
+					<td><%= track[:album_name] %></td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+<% end %>

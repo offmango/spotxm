@@ -11,3 +11,40 @@
  *= require_self
  *= require_tree .
  */
+
+body {
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+}
+
+#now_playing
+{
+	font-size: 12px;
+	margin: 45px;
+	width: 480px;
+	text-align: left;
+	border-collapse: collapse;
+}
+#now_playing th
+{
+	font-size: 14px;
+	font-weight: normal;
+	padding: 12px 15px;
+	color: #039;
+}
+#now_playing td
+{
+	padding: 10px 15px;
+	color: #669;
+	border-top: 1px solid #e8edff;
+}
+.oce-first
+{
+	background: #d0dafd;
+	border-right: 10px solid transparent;
+	border-left: 10px solid transparent;
+}
+#now_playing tr:hover td
+{
+	color: #339;
+	background: #eff2ff;
+}
