@@ -1,5 +1,5 @@
 Given /^the following tracks are playing on sirius xm:$/ do |tracks_table|
-	XMWrapper.stubs(:currently_playing).returns(tracks_table.hashes)
+	Track.stubs(:now_playing).returns(tracks_table.hashes)
 end
 
 When /^I search for the channel number "(.*?)"$/ do |channel_number|
