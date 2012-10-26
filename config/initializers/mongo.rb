@@ -1,8 +1,8 @@
-MongoMapper.connection = Mongo::Connection.new('localhost', 27017)
-MongoMapper.database = "#spotxm-#{Rails.env}"
+# MongoMapper.connection = Mongo::Connection.new('localhost', 27017)
+# MongoMapper.database = "#spotxm-#{Rails.env}"
 
-if defined?(PhusionPassenger)
-   PhusionPassenger.on_event(:starting_worker_process) do |forked|
-     MongoMapper.connection.connect if forked
-   end
-end
+# if defined?(PhusionPassenger)
+#    PhusionPassenger.on_event(:starting_worker_process) do |forked|
+#      MongoMapper.connection.connect if forked
+#    end
+# end

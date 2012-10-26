@@ -1,13 +1,13 @@
 class Track
 
-	include MongoMapper::Document
+	# include MongoMapper::Document
 
-  	key :track_name, String
-  	key :artist_name, String
-  	key :album_name, String
-  	key :channel_name, String
-  	key :channel_number,  Integer
-  	key :played_at, Time
+ 	#  key :track_name, String
+ 	#  key :artist_name, String
+ 	#  key :album_name, String
+ 	#  key :channel_name, String
+ 	#  key :channel_number,  Integer
+ 	#  key :played_at, Time
 
 	def self.now_playing(time = Time.now)
 		timestamp_data = XMWrapper.get_timestamp
@@ -16,6 +16,7 @@ class Track
 
 	def self.save_current_playlist
 		tracks = Track.now_playing
+		puts "*** UPDATING TRACK DATABASE"
 		tracks.each {|track| Track.create(track) if new_track?(track)}
 	end
 

@@ -1,14 +1,13 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.6'
-# it's best practice to name a ref so later changes in master don't break your app
-gem 'mongo_mapper', :git => 'git://github.com/jnunemaker/mongomapper.git', :ref => '4d35c6704a9'
-gem "bson_ext"
+#gem 'mongo_mapper', :git => 'git://github.com/jnunemaker/mongomapper.git', :ref => '4d35c6704a9'
+#gem "bson_ext"
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
+gem 'pg'
 
-# gem 'sqlite3'
+# CRON!
+gem 'whenever', :require => false
 
 
 # Gems used only for assets and not required
