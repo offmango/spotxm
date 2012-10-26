@@ -37,7 +37,7 @@ class Track
 					}
 			tracks << track
 		end
-		tracks.sort_by{|track| track.channel_number}
+		tracks.sort_by{|track| track[:channel_number]}
 	end
 
 	def self.new_track?(track_hash)
