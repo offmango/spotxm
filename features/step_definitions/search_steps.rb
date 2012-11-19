@@ -1,7 +1,3 @@
-Given /^the following tracks are playing on sirius xm:$/ do |tracks_table|
-	Track.stubs(:now_playing).returns(tracks_table.hashes)
-end
-
 When /^I search for the channel number "(.*?)"$/ do |channel_number|
 	visit root_path
 	fill_in 'Find Channel', with: channel_number

@@ -1,29 +1,34 @@
-class Track
+class Track < ActiveRecord::Base
 
-	# include MongoMapper::Document
-
- 	#  key :track_name, String
- 	#  key :artist_name, String
- 	#  key :album_name, String
- 	#  key :channel_name, String
- 	#  key :channel_number,  Integer
- 	#  key :played_at, Time
+	attr_accessible :track_name, :artist_name, :album_name, :channel_name, :channel_number, :played_at
+	
+	belongs_to :channel
 
 	def self.now_playing(time = Time.now)
 		timestamp_data = XMWrapper.get_timestamp
 		convert_timestamp_to_tracks(timestamp_data)
 	end
-
+	
 	def self.save_current_playlist
-		tracks = Track.now_playing
-		puts "*** UPDATING TRACK DATABASE"
-		tracks.each {|track| Track.create(track) if new_track?(track)}
+		track_hashes = Track.now_playing
+		track_hashes.each {|track_hash| Track.create(track_hash) if new_track?(track_hash)}
 	end
+
+	def self.most_recent
+		most_recent_tracks = []
+		Channel.all.each do |channel| 
+			most_recent_track = channel.most_recent_track
+			most_recent_tracks << most_recent_track if most_recent_track.present?
+		end
+		most_recent_tracks
+	end
+
 
 	private
 
+	
 	def self.convert_timestamp_to_tracks(timestamp_array)
-		tracks = []
+		track_hashes = []
 		timestamp_array.each do |channel|
 			channel_name = channel.at_css("channelname").text
 			channel_number = channel.at_css("channelnumber").text
@@ -36,13 +41,14 @@ class Track
 						channel_number: channel_number.to_i, 
 						played_at: Time.now
 					}
-			tracks << track
+			track_hashes << track
 		end
-		tracks.sort_by{|track| track[:channel_number]}
+		track_hashes.sort_by{|track| track[:channel_number]}
 	end
 
 	def self.new_track?(track_hash)
-		last_track = Track.find_all_by_channel_number(track_hash[:channel_number]).last
+		channel = Channel.find_by_channel_number(track_hash[:channel_number])
+		last_track = channel.tracks.first
 		if last_track.blank?
 			return true
 		else

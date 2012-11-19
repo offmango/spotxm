@@ -11,7 +11,7 @@
 <% if @tracks.present? %>
 	<h2>Now Playing</h2>
 
-	<table id="now_playing">
+	<table id="most_recent">
 		<thead>
 			<tr>
 				<th>Channel Number</th>
@@ -23,12 +23,12 @@
 		</thead>
 		<tbody>
 			<% @tracks.each do |track| %>
-				<tr class = "track_info" id = <%= "#{track[:channel_number]}"%>>
-					<td><%= track[:channel_number] %></td>
-					<td><%= track[:channel_name] %></td>
-					<td><%= track[:track_name] %> <%= link_to(image_tag('spotify.png', :size=> "16x16"), spotify_link("title", track), :target=>"_blank") if track[:track_name].present? %></td>
-					<td><%= track[:artist_name] %> <%= link_to(image_tag('spotify.png', :size=> "16x16"), spotify_link("artist", track), :target=>"_blank") if track[:artist_name].present? %></td>
-					<td><%= track[:album_name] %> <%= link_to(image_tag('spotify.png', :size=> "16x16"), spotify_link("album", track), :target=>"_blank") if track[:album_name].present?%></td>
+				<tr class = "track_info" id = <%= "#{track.channel.channel_number}"%>>
+					<td><%= track.channel.channel_number %></td>
+					<td><%= track.channel.channel_name %></td>
+					<td><%= track.track_name%> <%= link_to(image_tag('spotify.png', :size=> "16x16"), spotify_link("title", track), :target=>"_blank") if track.track_name.present? %></td>
+					<td><%= track.artist_name %> <%= link_to(image_tag('spotify.png', :size=> "16x16"), spotify_link("artist", track), :target=>"_blank") if track.artist_name.present? %></td>
+					<td><%= track.album_name %> <%= link_to(image_tag('spotify.png', :size=> "16x16"), spotify_link("album", track), :target=>"_blank") if track.album_name.present? %></td>
 				</tr>
 			<% end %>
 		</tbody>

@@ -11,24 +11,26 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 0) do
+ActiveRecord::Schema.define(:version => 20121116190406) do
 
-	#  key :track_name, String
- 	#  key :artist_name, String
- 	#  key :album_name, String
- 	#  key :channel_name, String
- 	#  key :channel_number,  Integer
- 	#  key :played_at, Time
+  create_table "channels", :force => true do |t|
+    t.string   "channel_name"
+    t.integer  "channel_number"
+    t.text     "description"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
 
- 	 create_table "tracks", :force => true do |t|
- 	 	t.string "track_name"
- 	 	t.string "artist_name"
- 	 	t.string "album_name"
- 	 	t.string "channel_name"
- 	 	t.integer "channel_number"
- 	 	t.datetime "played_at"
- 	 	t.datetime "created_at", :null => false
-   		t.datetime "updated_at", :null => false
-   	end
+  create_table "tracks", :force => true do |t|
+    t.string   "track_name"
+    t.string   "artist_name"
+    t.string   "album_name"
+    t.string   "channel_name"
+    t.integer  "channel_number"
+    t.datetime "played_at"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.integer  "channel_id"
+  end
 
 end
