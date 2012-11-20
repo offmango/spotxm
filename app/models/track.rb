@@ -11,7 +11,7 @@ class Track < ActiveRecord::Base
 	
 	def self.save_current_playlist
 		track_hashes = Track.now_playing
-		track_hashes.each {|track_hash| Track.create(track_hash) if new_track?(track_hash)}
+		track_hashes.each {|track_hash| process_track_hash(track_hash)}
 	end
 
 	def self.most_recent
@@ -26,6 +26,18 @@ class Track < ActiveRecord::Base
 
 	private
 
+	def self.process_track_hash(track_hash)
+		channel = Channel.find_by_channel_number(track_hash[:channel_number])
+		if channel.present?
+			channel.tracks.create(track_hash) if new_track?(channel, track_hash)
+		else
+			channel = Channel.create({
+				channel_number: track_hash[:channel_number],
+				channel_name: track_hash[:channel_name]
+			})
+			channel.tracks.create(track_hash)
+		end	
+	end
 	
 	def self.convert_timestamp_to_tracks(timestamp_array)
 		track_hashes = []
@@ -46,8 +58,7 @@ class Track < ActiveRecord::Base
 		track_hashes.sort_by{|track| track[:channel_number]}
 	end
 
-	def self.new_track?(track_hash)
-		channel = Channel.find_by_channel_number(track_hash[:channel_number])
+	def self.new_track?(channel, track_hash)	
 		last_track = channel.tracks.first
 		if last_track.blank?
 			return true
@@ -55,7 +66,7 @@ class Track < ActiveRecord::Base
 			last_track.track_name != track_hash[:track_name] or
 			last_track.artist_name != track_hash[:artist_name] or
 			last_track.album_name != track_hash[:album_name]
-		end
+		end	
 	end
 
 end

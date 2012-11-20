@@ -106,7 +106,33 @@ describe Track do
 		end
 
 		it "creates the necessary channel if it finds a track for a channel that does not yet exist" do
-			pending "OH YEAH"
+			Channel.all.each {|channel| channel.delete}
+			Track.all.each {|track| track.delete }
+
+			Track.stubs(:now_playing).returns(
+				[{
+					track_name: "Atlantic City",
+					artist_name: "Bruce Springsteen",
+					album_name: "Darkness on the Edge of Town",
+					played_at: now,
+					channel_number: 20,
+					channel_name: "E Street Radio"
+				}]
+			)
+
+			Track.save_current_playlist
+
+			Channel.all.size.should == 1
+			Track.all.size.should == 1
+
+			channel = Channel.all.first
+			track = channel.tracks.first
+
+			channel.channel_number.should == 20
+			channel.channel_name.should == "E Street Radio"
+			track.track_name.should == "Atlantic City"
+			track.artist_name.should == "Bruce Springsteen"
+			track.album_name.should == "Darkness on the Edge of Town"
 		end
 	end
 

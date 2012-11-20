@@ -1,0 +1,8 @@
+TO DO 11/19/12
+
+* Fix Spotify links
+* Styling
+* Views by channel
+* Search
+* Filter out sport channels
+* Web services?
