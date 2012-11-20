@@ -3,10 +3,6 @@ Feature: visit the home page
   As a user
   I should be able to view the homepage
 
- # Scenario: view the home page
- #   When I view the homepage
- #   Then I should be able to see details about the application
-
   Scenario: view the current playlist
 
     Given the following channels are in the database:
