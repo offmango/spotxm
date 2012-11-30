@@ -200,6 +200,7 @@ DEPENDENCIES
   evergreen
   guard-spork
   jquery-rails
+  nokogiri
   pg
   rails (= 3.2.6)
   rspec-rails

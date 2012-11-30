@@ -1,2 +1,32 @@
-<p id="channelname"><%= @channel_name %></p>
-<div id="now_playing"></div>
+<div id="channel_description">
+	<h1>Now Playing on Channel <%= @channel.channel_number %>, <%= @channel.channel_name %></h1>
+</div>
+
+<% if @tracks.present? %>
+	<h2>Playlist</h2>
+
+	<table id="track_listing">
+		<thead>
+			<tr>
+				<th>Track</th>
+				<th>Artist</th>
+				<th>Album</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @tracks.each do |track| %>
+				<tr>
+					<td>
+						<%= track.track_name%> <%= link_to(image_tag('spotify.png', :size=> "16x16"), spotify_link("track", track), :target=>"_blank") if track.track_name.present? %>
+					</td>
+					<td>
+						<%= track.artist_name %> <%= link_to(image_tag('spotify.png', :size=> "16x16"), spotify_link("artist", track), :target=>"_blank") if track.artist_name.present? %>
+					</td>
+					<td>
+						<%= track.album_name %> <%= link_to(image_tag('spotify.png', :size=> "16x16"), spotify_link("album", track), :target=>"_blank") if track.album_name.present? %>
+					</td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+<% end %>

@@ -3,15 +3,15 @@
 <p id="about-service">Wondering what's currently playing on Sirius XM?  You're in the right place.</p>
 
 <%= form_for :channel, method: :get do |form| %>
-	<%= form.label :name, 'Find Channel' %>
-	<%= form.text_field :number %>
+	<%= form.label :channel_number, 'Find Channel' %>
+	<%= form.text_field :channel_number %>
 	<%= form.submit 'Find' %>
 <% end %> 
 
 <% if @tracks.present? %>
 	<h2>Now Playing</h2>
 
-	<table id="most_recent">
+	<table id="track_listing">
 		<thead>
 			<tr>
 				<th>Channel Number</th>
@@ -26,7 +26,7 @@
 				<tr class = "track_info" id = <%= "#{track.channel.channel_number}"%>>
 					<td><%= track.channel.channel_number %></td>
 					<td><%= track.channel.channel_name %></td>
-					<td><%= track.track_name%> <%= link_to(image_tag('spotify.png', :size=> "16x16"), spotify_link("title", track), :target=>"_blank") if track.track_name.present? %></td>
+					<td><%= track.track_name%> <%= link_to(image_tag('spotify.png', :size=> "16x16"), spotify_link("track", track), :target=>"_blank") if track.track_name.present? %></td>
 					<td><%= track.artist_name %> <%= link_to(image_tag('spotify.png', :size=> "16x16"), spotify_link("artist", track), :target=>"_blank") if track.artist_name.present? %></td>
 					<td><%= track.album_name %> <%= link_to(image_tag('spotify.png', :size=> "16x16"), spotify_link("album", track), :target=>"_blank") if track.album_name.present? %></td>
 				</tr>

@@ -1,6 +1,5 @@
 class XMWrapper
 
-	require 'nokogiri'
 	require 'open-uri'
 
 	BASE_URL = "https://www.siriusxm.com"
@@ -8,6 +7,7 @@ class XMWrapper
 
 	
 	def self.get_timestamp(time = Time.now)
+		puts "Getting Sirius XM timestamp..."
 		url = get_timestamp_url(time)
 		timestamp_data = Nokogiri::HTML(open(url))
 		timestamp_data.css('metadata')
@@ -21,7 +21,8 @@ class XMWrapper
 	end
 
 	def self.convert_time_for_url(time)
-		(time + (60 * 60 * 4) - 10).strftime("%m-%d-%H:%M:%S")
+		# the timestamp needs an offset, for some reason
+		(time + (60 * 60 * 4) - 60).strftime("%m-%d-%H:%M:%S")	
 	end
 
 end

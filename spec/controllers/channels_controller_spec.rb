@@ -1,16 +1,24 @@
 require 'spec_helper'
 
-# describe ChannelsController do 
-#   context '#index' do
-#     it 'responds successfully' do
-#       get :index
-#       should respond_with(:success)
-#     end
+describe ChannelsController do 
+	context '#index' do
+    	it 'responds successfully' do
+      		get :index
+      		should respond_with(:success)
+    	end
 
-#     it 'assigns @channel' do
-#       get :index, channel: { name: 'siriusxmu' }
-#       should assign_to(:channel)
-#     end
-#   end
+    	it 'redirects to a specific channel page if a valid channel number has been searched for' do
+    		channel = Channel.create(channel_number: 20)
+    		Channel.stubs(:find_by_channel_number).returns(channel)
 
-# end
+    		params = {:channel => {:channel_number => 20}}
+    		get :index, params
+    		
+    		should redirect_to channel_path(channel)
+
+    	end
+
+    
+  end
+
+end

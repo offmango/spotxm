@@ -1,10 +1,11 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.6'
-#gem 'mongo_mapper', :git => 'git://github.com/jnunemaker/mongomapper.git', :ref => '4d35c6704a9'
-#gem "bson_ext"
 
+# Postgres
 gem 'pg'
+
+gem 'nokogiri'
 
 # CRON!
 gem 'whenever', :require => false

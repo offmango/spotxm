@@ -24,7 +24,7 @@ end
 
 Then /^I should see information on the following tracks:$/ do |tracks_table| 
 
-  	within "table#most_recent" do
+  	within "table#track_listing" do
 		tracks_table.hashes.each do |track_hash|
 			within "tr##{track_hash[:channel_number]}" do
 				page.should have_css('td', text: "#{track_hash[:channel_number]}")

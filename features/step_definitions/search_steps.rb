@@ -8,7 +8,15 @@ Given /^the following tracks are in the database:$/ do |tracks_table|
 end
 
 Then /^I should see a playlist for channel "(.*?)" with the following songs:$/ do |channel_number, tracks_table|
-  pending # express the regexp above with the code you wish you had
+	page.should have_css('#channel_description', text: "Now Playing on Channel #{channel_number}")
+	within "table#track_listing" do
+		tracks_table.hashes.each do |track_hash|			
+			page.should have_css('td', text: "#{track_hash[:track_name]}")
+			page.should have_css('td', text: "#{track_hash[:artist_name]}")
+			page.should have_css('td', text: "#{track_hash[:album_name]}")
+		end
+	end
+
 end
 
 When /^I search for the channel number "(.*?)"$/ do |channel_number|

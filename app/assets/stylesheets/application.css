@@ -16,7 +16,7 @@ body {
 	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
 }
 
-#now_playing
+#track_listing
 {
 	font-size: 12px;
 	margin: 45px;
@@ -24,14 +24,14 @@ body {
 	text-align: left;
 	border-collapse: collapse;
 }
-#now_playing th
+#track_listing th
 {
 	font-size: 14px;
 	font-weight: normal;
 	padding: 12px 15px;
 	color: #039;
 }
-#now_playing td
+#track_listing td
 {
 	padding: 10px 15px;
 	color: #669;
@@ -43,7 +43,7 @@ body {
 	border-right: 10px solid transparent;
 	border-left: 10px solid transparent;
 }
-#now_playing tr:hover td
+#track_listing tr:hover td
 {
 	color: #339;
 	background: #eff2ff;
