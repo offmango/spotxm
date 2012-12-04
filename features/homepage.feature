@@ -24,3 +24,28 @@ Feature: visit the home page
       | "Don't Stop Believin'" | "Journey"           | 8              | "Totally 80's"          | "Journey's Greatist Hits"      |
 		  | "Atlantic City" 		   | "Bruce Springsteen" | 20			        | "E Street Radio" 		    | "Darkness on the Edge of Town" |
 		  | "Stupid Country Song"	 | "Billy Ray Cyrus"   | 33				      | "Country Bumpkin Radio" | "Stupid Country Album"    	   |
+
+
+  Scenario: View the playlist for a specific channel
+
+    Given the following channels are in the database:
+      | channel_number | channel_name            |
+      | 8              | "Totally 80's"          |
+      | 20             | "E Street Radio"        |
+      | 33             | "Country Bumpkin Radio" |
+
+    And the following tracks are in the database:
+      | track_name             | artist_name         | album_name                     | channel_number |
+      | "Atlantic City"        | "Bruce Springsteen" | "Darkness on the Edge of Town" | 20             |
+      | "Forever Young"        | "Alphaville"        | "Alphaville's Greatest Hits"   | 8              |
+      | "Don't Stop Believin'" | "Journey"           | "Journey's Greatest Hits"      | 8              |
+
+    When I view the homepage
+    
+    And I click the link for channel "8"
+
+    Then I should see a playlist for channel "8" with the following songs:
+      | track_name             | artist_name         | album_name                     | channel_number |
+      | "Forever Young"        | "Alphaville"        | "Alphaville's Greatest Hits"   | 8              |
+      | "Don't Stop Believin'" | "Journey"           | "Journey's Greatest Hits"      | 8              |
+

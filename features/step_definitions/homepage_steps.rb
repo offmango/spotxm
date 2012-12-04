@@ -16,6 +16,13 @@ When /^I view the homepage$/ do
   	visit root_path
 end
 
+When /^I click the link for channel "(.*?)"$/ do |channel_number|
+	within "tr#channel_#{channel_number}" do
+    	click_link "channel_link_#{channel_number}"
+  	end
+end
+
+
 Then /^I should be able to see details about the application$/ do
   	page.should have_css('h1', text:"SpotXM")
   	page.should have_css('title', text:"SpotXM")
@@ -26,7 +33,7 @@ Then /^I should see information on the following tracks:$/ do |tracks_table|
 
   	within "table#track_listing" do
 		tracks_table.hashes.each do |track_hash|
-			within "tr##{track_hash[:channel_number]}" do
+			within "tr#channel_#{track_hash[:channel_number]}" do
 				page.should have_css('td', text: "#{track_hash[:channel_number]}")
 				page.should have_css('td', text: "#{track_hash[:channel_name]}")				
 				page.should have_css('td', text: "#{track_hash[:track_name]}")
