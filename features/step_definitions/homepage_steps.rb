@@ -29,8 +29,7 @@ Then /^I should be able to see details about the application$/ do
   	page.should have_css('#about-service')
 end
 
-Then /^I should see information on the following tracks:$/ do |tracks_table| 
-
+Then /^I should see information on the following tracks:$/ do |tracks_table| 	
   	within "table#track_listing" do
 		tracks_table.hashes.each do |track_hash|
 			within "tr#channel_#{track_hash[:channel_number]}" do
