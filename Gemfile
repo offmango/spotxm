@@ -7,9 +7,12 @@ gem 'pg'
 
 gem 'nokogiri'
 
-# CRON!
-gem 'whenever', :require => false
+gem "therubyracer"
+gem 'libv8', '~> 3.11.8' # for therubyracer
+gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+gem "twitter-bootstrap-rails"
 
+gem "thin"
 
 # Gems used only for assets and not required
 # in production environments by default.
