@@ -5,8 +5,8 @@
         <title>SpotXM</title>
         <!-- Bootstrap-->
         <%= stylesheet_link_tag    "application", :media => "all" %>
-        <%= stylesheet_link_tag    "bootstrap.min", :media => "screen" %>
-  		<%= csrf_meta_tags %>
+        <%= javascript_include_tag "application" %>
+        <%= csrf_meta_tags %>
     </head>
 
 	<body>
@@ -24,8 +24,6 @@
             <%= yield %>
         </div>
         
-        <!-- Javascript placed at the end of the document so the pages load faster -->
-        <%= javascript_include_tag "application", "bootstrap.min" %>
 
 	</body>
 </html>
