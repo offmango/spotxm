@@ -9,7 +9,7 @@ class XMWrapper
 	def self.get_timestamp(time = Time.now)
 		puts "Getting Sirius XM timestamp..."
 		url = get_timestamp_url(time)
-		timestamp_data = Nokogiri::HTML(open(url))
+		timestamp_data = Nokogiri::HTML(open(url, 'User-Agent' => 'ruby'))
 		timestamp_data.css('metadata')
 	end
 
@@ -22,7 +22,7 @@ class XMWrapper
 
 	def self.convert_time_for_url(time)
 		# the timestamp needs an offset, for some reason
-		(time + (60 * 60 * 4) - 5).strftime("%m-%d-%H:%M:%S")	
+		(time + (60 * 60 * 4) - 10).strftime("%m-%d-%H:%M:%S")	
 	end
 
 end
