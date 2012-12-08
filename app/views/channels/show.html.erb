@@ -1,10 +1,8 @@
 <div id="channel_description">
-	<h1>Now Playing on Channel <%= @channel.channel_number %>, <%= @channel.channel_name %></h1>
+	<h2>Now Playing on Channel <%= @channel.channel_number %>, <%= @channel.channel_name %></h2>
 </div>
 
 <% if @tracks.present? %>
-	<h2>Playlist</h2>
-
 	<table id="track_listing">
 		<thead>
 			<tr>

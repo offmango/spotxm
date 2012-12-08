@@ -12,9 +12,17 @@
  *= require_tree .
  */
 
+
+
 body {
-	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
 }
+
+p#about-service {
+	padding: 10px;
+	font-style: italic;
+	color: grey;	
+}   
 
 #track_listing
 {

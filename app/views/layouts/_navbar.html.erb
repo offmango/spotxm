@@ -3,13 +3,21 @@
 		<div class="container">
 			<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
 				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
 			</a>
 			<%= link_to "Spot XM", root_path, :class => "brand" %>
 			<div class="nav-collapse collapse">
 				<ul class="nav">
 					<li class="active">
-						<%= link_to_unless_current "Home", root_path %>
+						<%= link_to "Home", root_path %>
 					</li>
+					<li>
+						<%= link_to "Channels", channels_path %>
+					</li>
+					<li>
+						<%= link_to "About", "#" %>
+					<li>
 				</ul>
 			</div>
 			<!--/.nav-collapse -->

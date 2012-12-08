@@ -1,20 +1,31 @@
 <!DOCTYPE html>
 <html>
+
     <head>
         <title>SpotXM</title>
         <!-- Bootstrap-->
-
         <%= stylesheet_link_tag    "application", :media => "all" %>
         <%= stylesheet_link_tag    "bootstrap.min", :media => "screen" %>
-  		<%= javascript_include_tag "application", "bootstrap.min" %>
   		<%= csrf_meta_tags %>
     </head>
 
 	<body>
-        <%= render "layouts/navbar" %>
+
+        <%-# render "layouts/navbar" -%>
 
         <div class="container">
-		  <%= yield %>
+            <h1>SpotXM</h1>
+            <p id="about-service">Wondering what's currently playing on Sirius XM?  You're in the right place.</p>
+
+            <% if flash[:alert] %>
+                <p class="alert"><%= flash[:alert] %></p>
+            <% end %>
+
+            <%= yield %>
         </div>
+        
+        <!-- Javascript placed at the end of the document so the pages load faster -->
+        <%= javascript_include_tag "application", "bootstrap.min" %>
+
 	</body>
 </html>
