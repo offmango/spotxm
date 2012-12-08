@@ -9,7 +9,7 @@ class XMWrapper
 	def self.get_timestamp(time = Time.now)
 		puts "Getting Sirius XM timestamp..."
 		url = get_timestamp_url(time)
-		timestamp_data = Nokogiri::HTML(open(url, 'User-Agent' => 'ruby'))
+		timestamp_data = Nokogiri::HTML(open(url, 'User-Agent' => "Spotxm/0.1"))
 		timestamp_data.css('metadata')
 	end
 
