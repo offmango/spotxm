@@ -21,7 +21,7 @@ end
 
 When /^I search for the channel number "(.*?)"$/ do |channel_number|
 	visit root_path
-	fill_in 'Find Channel', with: channel_number
+	fill_in 'channel-search', with: channel_number
 	click_button 'Find'
 end
 

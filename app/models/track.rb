@@ -58,6 +58,25 @@ class Track < ActiveRecord::Base
 		track_hashes.sort_by{|track| track[:channel_number]}
 	end
 
+	def self.convert_pad_data_to_tracks(timestamp_data)
+		# this converts the old pad data call, which no longer works
+		track_hashes = []
+		channels = timestamp_data.css("event")
+		channels.each do |channel|
+			track = {
+						artist_name: channel.at_css("artist").text,
+						track_name: channel.at_css("songtitle").text,
+						album_name: channel.at_css("album").text,
+						channel_name: channel.at_css("channelname").text,
+						channel_number: channel.at_css("channelnumber").text,
+						played_at: Time.now
+					}
+			track_hashes << track
+		end
+		track_hashes.sort_by{|track| track[:channel_number]}
+	end
+
+
 	def self.new_track?(channel, track_hash)	
 		last_track = channel.tracks.first
 		if last_track.blank?

@@ -1,4 +1,4 @@
 <%= form_for :channel, method: :get do |form| %>
-	<%= form.text_field :channel_number, :placeholder => "Enter a channel number" %>
+	<%= form.text_field :channel_number, :id => "channel-search", :placeholder => "Enter a channel number" %>
 	<%= form.submit 'Find' %>
 <% end %> 
