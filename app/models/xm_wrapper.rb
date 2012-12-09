@@ -28,7 +28,7 @@ class XMWrapper
 		# This was the old way of getting sirius xm now-playing data
 		# Now it seems to return the same thing over and over
 		puts "Getting Sirius XM pad data..."
-		timestamp_data = Nokogiri::HTML(open(NEW_URL))
+		timestamp_data = Nokogiri::HTML(open(PAD_DATA_URL))
 	end
 
 
