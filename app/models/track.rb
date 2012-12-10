@@ -4,6 +4,19 @@ class Track < ActiveRecord::Base
 	
 	belongs_to :channel
 
+	# For Thinking Sphinx
+	define_index do
+		# fields
+		indexes track_name, :sortable => true
+		index artist_name, :sortable => true
+		indexes album_name, :sortable => true
+		indexes channel.channel_name, :sortable => true
+
+		# attributes
+		has channel_id, played_at
+	end
+
+
 	def self.now_playing(time = Time.now)
 		timestamp_data = XMWrapper.get_timestamp
 		convert_timestamp_to_tracks(timestamp_data)
