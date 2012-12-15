@@ -32,11 +32,10 @@ describe ChannelsController do
 
     		get :index
 
-      		tracks_collection = controller.instance_variable_get(:@tracks) 
+      	tracks_collection = controller.instance_variable_get(:@tracks) 
 
-      		tracks_collection.should == [track1, track5, track10, track100]
-      	end
-
+      	tracks_collection.should == [track1, track5, track10, track100]
+      end
   	end
 
 end

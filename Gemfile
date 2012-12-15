@@ -6,9 +6,11 @@ gem 'rails', '3.2.6'
 gem 'pg'
 
 gem 'nokogiri'
+#gem 'httparty'
 
 gem "thin"
 
+# You know, for search!
 gem "thinking-sphinx"
 
 # Gems used only for assets and not required

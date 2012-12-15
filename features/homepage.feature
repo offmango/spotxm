@@ -44,7 +44,7 @@ Feature: visit the home page
     
     And I click the link for channel "8"
 
-    Then I should see a playlist for channel "8" with the following songs:
+    Then I should see a playlist for channel "8" with the following tracks:
       | track_name             | artist_name         | album_name                     | channel_number |
       | "Forever Young"        | "Alphaville"        | "Alphaville's Greatest Hits"   | 8              |
       | "Don't Stop Believin'" | "Journey"           | "Journey's Greatest Hits"      | 8              |

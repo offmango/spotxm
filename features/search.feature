@@ -13,12 +13,12 @@ Feature: Search
 		  	| "Ramrod"		  | "Bruce Springsteen" | "The River"					 | 20 			  |
 		When I view the homepage
 		And I search for the channel number "20"
-		Then I should see a playlist for channel "20" with the following songs:
-			| song_name 	  | artist_name 		| album_name 					 |
+		Then I should see a playlist for channel "20" with the following tracks:
+			| track_name 	  | artist_name 		| album_name 					 |
 			| "Atlantic City" | "Bruce Springsteen" | "Darkness on the Edge of Town" |
 			| "Ramrod"		  | "Bruce Springsteen" | "The River"					 | 
 
-	Scenario: Search tracks by track name, album name, artist name, or channel name
+	Scenario: Search tracks by track name, album name, or artist name
 		Given the following channels are in the database:
 			| channel_number | channel_name     	  |
       		| 20             | "E Street Radio" 	  |
@@ -42,4 +42,3 @@ Feature: Search
 		  	| "Rockin' (with Neil Young)" | "Bruce Springsteen" | 								 | 20 			  |
 		  	| "Old Man"					  | "Neil Young"		| "Live at Massey Hall"			 | 7			  |
 		  	| "Hey Hey (My My)"			  | "Crazy Horse"		| "Neil Young's Greatest Hits"   | 7              |
-		  	| "Sweet Caroline"			  | "The White Stripes" | 								 | 3 			  |

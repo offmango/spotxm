@@ -10,7 +10,7 @@ class Track < ActiveRecord::Base
 		indexes track_name, :sortable => true
 		index artist_name, :sortable => true
 		indexes album_name, :sortable => true
-		indexes channel.channel_name, :sortable => true
+		#indexes channel.channel_name, :sortable => true
 
 		# attributes
 		has channel_id, played_at
