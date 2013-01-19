@@ -1,3 +1,10 @@
+Given /^the (\w+) indexes are processed$/ do |model|
+	model = model.titleize.gsub(/\s/, '').constantize
+	puts "Processing #{model} index"
+	ThinkingSphinx::Test.index *model.sphinx_index_names
+	sleep(1.00) # Wait for Sphinx to catch up
+end
+
 Given /^the following tracks are in the database:$/ do |tracks_table|
 	Track.all.each { |track| track.delete }
   	Channel.all.each { |channel| channel.delete }
@@ -18,6 +25,8 @@ When /^I search tracks for "(.*?)"$/ do |search_term|
 end
 
 Then /^I should see a list of the following tracks:$/ do |tracks_table|
+	print page.html
+	Track.all.each {|track| puts "TRACK:#{track.track_name} ARTIST:#{track.artist_name}"}
 	within "table#track_listing" do
 		tracks_table.hashes.each do |track_hash|			
 			page.should have_css('td', text: "#{track_hash[:track_name]}")
