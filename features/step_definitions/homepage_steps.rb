@@ -1,14 +1,15 @@
 Given /^the following channels are in the database:$/ do |channels_table|
-	Channel.all.each {|channel| channel.delete}
+	#Channel.all.each {|channel| channel.delete}
 	channels_table.hashes.each { |channel_hash| Channel.create(channel_hash) } 
 end
 
 Given /^the following tracks are the most recently played on sirius xm:$/ do |tracks_table|
-	Track.all.each{ |track| track.delete }
+	#Track.all.each{ |track| track.delete }
 	tracks_table.hashes.each do |track_hash| 
 		channel = Channel.find_by_channel_number(track_hash[:channel_number])
 		channel.tracks.create(track_hash)
 	end
+	Track.all.each {|track| puts "TRACK: #{track.track_name} ARTIST: #{track.artist_name}"}
 end
 
 

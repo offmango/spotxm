@@ -1,6 +1,13 @@
+Given /^the (\w+) indexes are processed$/ do |model|
+	model = model.titleize.gsub(/\s/, '').constantize
+	puts "Processing #{model} index"
+	ThinkingSphinx::Test.index *model.sphinx_index_names
+	sleep(1.00) # Wait for Sphinx to catch up
+end
+
 Given /^the following tracks are in the database:$/ do |tracks_table|
-	Track.all.each { |track| track.delete }
-  	Channel.all.each { |channel| channel.delete }
+	#Track.all.each { |track| track.delete }
+  	#Channel.all.each { |channel| channel.delete }
 	tracks_table.hashes.each do |track_hash| 
 		channel = Channel.find_or_create_by_channel_number(track_hash[:channel_number])
 		channel.tracks.create(track_hash)

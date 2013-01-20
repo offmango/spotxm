@@ -8,7 +8,7 @@ class Track < ActiveRecord::Base
 	define_index do
 		# fields
 		indexes track_name, :sortable => true
-		index artist_name, :sortable => true
+		indexes artist_name, :sortable => true
 		indexes album_name, :sortable => true
 		#indexes channel.channel_name, :sortable => true
 
