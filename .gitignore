@@ -18,3 +18,4 @@
 # Ignore Sphinx indexes
 
 /db/sphinx/test/*
+/db/sphinx/development/*
