@@ -12,4 +12,9 @@
 
 # Ignore all logfiles and tempfiles.
 /log/*.log
+/log/*.pid
 /tmp
+
+# Ignore Sphinx indexes
+
+/db/sphinx/test/*

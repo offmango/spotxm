@@ -25,6 +25,8 @@ When /^I search tracks for "(.*?)"$/ do |search_term|
 end
 
 Then /^I should see a list of the following tracks:$/ do |tracks_table|
+	print page.html
+	Track.all.each {|track| puts "TRACK:#{track.track_name} ARTIST:#{track.artist_name}"}
 	within "table#track_listing" do
 		tracks_table.hashes.each do |track_hash|			
 			page.should have_css('td', text: "#{track_hash[:track_name]}")
