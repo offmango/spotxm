@@ -9,7 +9,6 @@ Given /^the following tracks are the most recently played on sirius xm:$/ do |tr
 		channel = Channel.find_by_channel_number(track_hash[:channel_number])
 		channel.tracks.create(track_hash)
 	end
-	Track.all.each {|track| puts "TRACK: #{track.track_name} ARTIST: #{track.artist_name}"}
 end
 
 
