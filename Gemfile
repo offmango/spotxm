@@ -7,6 +7,7 @@ gem 'pg'
 
 gem 'nokogiri'
 #gem 'httparty'
+gem 'typhoeus'
 
 gem "thin"
 

@@ -24,6 +24,18 @@ class XMWrapper
 		timestamp_data.css('metadata')
 	end
 
+	def self.get_typhoeus_timestamp(time = Time.now)
+		puts "Getting timestamp with Typhoeus"
+		url = get_timestamp_url(time)
+		request = Typhoeus::Request.new(url)
+		hydra = Typhoeus::Hydra.new
+		hydra.queue(request)
+		hydra.run
+		response = request.response
+		noko_html = Nokogiri::HTML(response.body)
+		noko_html.css('metadata')
+	end
+
 	def self.get_pad_data
 		# This was the old way of getting sirius xm now-playing data
 		# Now it seems to return the same thing over and over
