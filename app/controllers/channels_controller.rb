@@ -18,4 +18,9 @@ class ChannelsController < ApplicationController
 		@tracks = @channel.tracks
 	end
 
+    def now_playing
+        Track.save_current_playlist
+        @tracks = Track.most_recent.sort { |x, y| x.channel.channel_number <=> y.channel.channel_number }
+    end
+
 end
