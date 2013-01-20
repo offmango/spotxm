@@ -24,7 +24,6 @@ To stop TS (obviously):
 
 To get TS working properly with Cucumber, I created a sphinx.rb file in features/support and added the following:
 
-	# For Thinking Sphinx
 	require 'cucumber/thinking_sphinx/external_world'
 	Cucumber::ThinkingSphinx::ExternalWorld.new
 	ThinkingSphinx::Test.start_with_autostop
