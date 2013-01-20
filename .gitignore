@@ -19,3 +19,6 @@
 
 /db/sphinx/test/*
 /db/sphinx/development/*
+
+# Ignore rubber.yml (with the sekret info)
+/config/rubber/rubber.yml

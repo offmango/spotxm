@@ -1,5 +1,5 @@
 # REQUIRED: The name of your application
-app_name: your_app_name
+app_name: spotxm
 
 # REQUIRED: The system user to run your app servers as
 app_user: app
@@ -50,9 +50,9 @@ cloud_providers:
     
     # REQUIRED The amazon keys and account ID (digits only, no dashes) used to access the AWS API
     #
-    access_key: XXX
-    secret_access_key: YYY
-    account: ZZZ
+    access_key: 0S5GFRG3KV8DE9QP9FR2
+    secret_access_key: FBkLuKpppfojj2A5+QmZ8D28kevoD9pTQJkY8C6n
+    account: 724283921572
 
     # REQUIRED:  The name of the amazon keypair and location of its private key
     #
