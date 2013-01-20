@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 gem 'rails', '3.2.11'
 
@@ -7,7 +7,7 @@ gem 'pg'
 
 gem 'nokogiri'
 #gem 'httparty'
-gem 'typhoeus'
+#gem 'typhoeus'
 
 gem "thin"
 
@@ -29,6 +29,9 @@ group :assets do
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
+
+  # for Rubber
+  gem 'therubyracer'
 
   gem 'uglifier', '>= 1.0.3'
 end
@@ -52,3 +55,8 @@ group :test do
 	gem 'bourne'
 	gem 'evergreen'
 end
+gem 'rubber'
+gem 'open4'
+gem 'gelf'
+gem 'graylog2_exceptions', :git => 'git://github.com/wr0ngway/graylog2_exceptions.git'
+gem 'graylog2-resque'
