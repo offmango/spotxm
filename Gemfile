@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.6'
+gem 'rails', '3.2.11'
 
 # Postgres
 gem 'pg'
@@ -12,7 +12,8 @@ gem 'typhoeus'
 gem "thin"
 
 # You know, for search!
-gem "thinking-sphinx"
+#gem 'mysql2',          '0.3.12b4'
+gem "thinking-sphinx", '2.0.10'#'3.0.0', :git => 'git://github.com/pat/thinking-sphinx.git'
 
 # Gems used only for assets and not required
 # in production environments by default.
