@@ -72,3 +72,5 @@ Note that's *:truncation* and not *:transaction*.  It took me ages to figure out
 
 * The timestamp call is currently not working from Heroku (and occasionally from local).  Not sure why.  For better testing, create a test page for doing the timestamp to see what's coming back
 * Links to Echo Nest?
+
+* Fix timestamp call to account for daylight savings

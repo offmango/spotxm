@@ -52,8 +52,9 @@ group :test do
 	gem 'bourne'
 	gem 'evergreen'
 end
-gem 'rubber'
 gem 'open4'
 gem 'gelf'
 gem 'graylog2_exceptions', :git => 'git://github.com/wr0ngway/graylog2_exceptions.git'
 gem 'graylog2-resque'
+#gem 'rubber', :git => 'git://github.com/wr0ngway/rubber.git', :ref => 'ed796b7613'
+gem 'rubber'
