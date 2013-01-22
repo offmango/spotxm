@@ -50,9 +50,9 @@ cloud_providers:
     
     # REQUIRED The amazon keys and account ID (digits only, no dashes) used to access the AWS API
     #
-    access_key: S3[:key]
-    secret_access_key: S3[:secret]
-    account: S3[:account]
+    access_key: AKIAJBSYSSSTWF5MS5BQ
+    secret_access_key: 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
+    account: 724283921572
 
     # REQUIRED:  The name of the amazon keypair and location of its private key
     #
