@@ -11,14 +11,18 @@
 /db/*.sqlite3
 
 # Ignore all logfiles and tempfiles.
-/log/*.log
-/log/*.pid
+/log
 /tmp
 
-# Ignore Sphinx indexes
+# Ignore Sphinx indexes...
 
 /db/sphinx/test/*
 /db/sphinx/development/*
+
+# ...and Solr indexes
+
+/solr/data/**/*
+/solr/pids/**/*
 
 # Ignore rubber.yml (with the sekret info)
 /config/rubber/rubber.yml

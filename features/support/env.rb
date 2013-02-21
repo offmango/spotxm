@@ -18,6 +18,9 @@ Spork.prefork do
 	# See https://github.com/sporkrb/spork/issues/188
 	p "Done setting up. Closing DB connections in test"
 	ActiveRecord::Base.remove_connection
+
+	$original_sunspot_session = Sunspot.session
+
 end
 
 Spork.each_run do

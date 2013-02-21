@@ -11,11 +11,15 @@ Spork.prefork do
     config.infer_base_class_for_anonymous_controllers = false
     config.order = "random"
     config.mock_with :mocha
-    # config.around do |example|  
-          # code in this block will be run around all tests
-          # you can use this for setting instance variables and the like
-          # example.run
-    # end
+    
+
+    config.before(:each) do
+      ::Sunspot.session = ::Sunspot::Rails::StubSessionProxy.new(::Sunspot.session)
+    end
+
+    config.after(:each) do
+      ::Sunspot.session = ::Sunspot.session.original_session
+    end
   end
 
 end
@@ -23,4 +27,3 @@ end
 Spork.each_run do
   Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 end
-

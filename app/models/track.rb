@@ -4,16 +4,12 @@ class Track < ActiveRecord::Base
 	
 	belongs_to :channel
 
-	# For Thinking Sphinx
-	define_index do
+	# For Solr
+	searchable do
 		# fields
-		indexes track_name, :sortable => true
-		indexes artist_name, :sortable => true
-		indexes album_name, :sortable => true
-		#indexes channel.channel_name, :sortable => true
-
-		# attributes
-		has channel_id, played_at
+		text :track_name
+		text :artist_name
+		text :album_name
 	end
 
 

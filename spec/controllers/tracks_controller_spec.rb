@@ -16,12 +16,13 @@ describe TracksController do
     		track4 = Track.create(channel_id: 1, track_name: "A Bad Song", album_name: "A Bad Album", artist_name: "Jimmy Shmo")
 
     		params = {track: {track_params: "neil"}}
+            search_result = OpenStruct.new(results: [track1, track2, track3])
 
-            Track.stubs(:search).with(params[:track][:track_params]).returns([track1, track2, track3])
+            Track.stubs(:search).returns(search_result)
 
     		get :index, params
 
-            Track.should have_received(:search).with(params[:track][:track_params])
+            Track.should have_received(:search)
 
 			found_tracks = controller.instance_variable_get(:@tracks)
 			found_tracks.should include(track1)

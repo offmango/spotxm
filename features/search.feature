@@ -18,7 +18,7 @@ Feature: Search
 			| "Atlantic City" | "Bruce Springsteen" | "Darkness on the Edge of Town" |
 			| "Ramrod"		  | "Bruce Springsteen" | "The River"					 | 
 
-	@no-txn
+	@search
 	Scenario: Search tracks by track name, album name, or artist name
 		Given the following channels are in the database:
 			| channel_number | channel_name     	  |
@@ -33,7 +33,6 @@ Feature: Search
 		  		| "Old Man"					  | "Neil Young"		| "Live at Massey Hall"			 | 7			  |
 		  		| "Hey Hey (My My)"			  | "Crazy Horse"		| "Neil Young's Greatest Hits"   | 7              |
 		  		| "Sweet Caroline"			  | "The White Stripes" | 								 | 3 			  |
-		  	And the track indexes are processed
  
 		When I view the homepage
 			And I search tracks for "neil"
