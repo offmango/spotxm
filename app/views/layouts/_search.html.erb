@@ -1,0 +1,6 @@
+<%= form_for :track, :url => tracks_path, method: :get do |track_form| %>
+	<%= track_form.label :track_params, "Search for a track" %>
+	<%= track_form.text_field :track_params, :id => "track-search", :placeholder => @search_params || "Enter your search term" %>
+	<%= track_form.submit 'Find Track' %>
+<% end %> 
+

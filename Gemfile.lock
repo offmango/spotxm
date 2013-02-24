@@ -88,6 +88,7 @@ GEM
     excon (0.17.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    fattr (2.2.1)
     ffi (1.4.0)
     fog (1.9.0)
       builder
@@ -155,9 +156,14 @@ GEM
       net-ssh (>= 2.6.5)
     nokogiri (1.5.6)
     open4 (1.3.0)
+    options (2.3.0)
+      fattr
     pg (0.14.1)
     polyglot (0.3.3)
     pr_geohash (1.0.0)
+    progress_bar (0.4.0)
+      highline (~> 1.6.1)
+      options (~> 2.3.0)
     pry (0.9.12)
       coderay (~> 1.0.5)
       method_source (~> 0.8)
@@ -299,6 +305,7 @@ DEPENDENCIES
   nokogiri
   open4
   pg
+  progress_bar
   rails (= 3.2.12)
   rb-fsevent (~> 0.9.1)
   rspec-rails (>= 2.12.1)
