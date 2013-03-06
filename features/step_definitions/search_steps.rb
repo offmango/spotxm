@@ -14,14 +14,20 @@ Given /^the following tracks are in the database:$/ do |tracks_table|
 	end
 end
 
-When /^I search for the channel number "(.*?)"$/ do |channel_number|
-	fill_in 'channel-search', with: channel_number
-	click_button 'Find Channel'
+When /^I search for "(.*?)"$/ do |search_term|
+	fill_in 'search', with: search_term
+	click_button 'Find'
 end
 
-When /^I search tracks for "(.*?)"$/ do |search_term|
-	fill_in 'track-search', with: search_term
-	click_button 'Find Track'
+Then /^I should see a list of the following channels:$/ do |channels_table|
+	within "div#channel_results" do
+		channels_table.hashes.each do |channel_hash|
+			within "div#channel_#{channel_hash[:channel_number]}" do
+				page.should have_css('div.channel_name', text: "#{channel_hash[:channel_name]}")
+				page.should have_css('div.channel_description', text: "#{channel_hash[:description]}")
+			end
+		end
+	end
 end
 
 Then /^I should see a list of the following tracks:$/ do |tracks_table|

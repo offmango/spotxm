@@ -1,3 +1,7 @@
+<div id='channel_results'>
+	<%= render :partial => "shared/channel", :collection => @channels %>
+</div>	
+
 <% if @tracks.present? %>
 	<table id="track_listing">
 		<thead>
