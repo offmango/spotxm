@@ -10,6 +10,17 @@ class Channel < ActiveRecord::Base
 		integer :channel_number
 	end
 
+  	def self.channel_search(params)
+  		channel_search = Channel.search do
+		 	if params.to_i != 0
+		 		with :channel_number, params.to_i
+		 	else
+		 		fulltext params
+		 	end
+		end
+		channel_search.results
+	end
+
 	def most_recent_track
   		self.tracks.first
   	end

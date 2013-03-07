@@ -15,13 +15,13 @@
 
         <div class="container">
             <h1><%= link_to "SpotXM", root_path %></h1>
-            <p id="about-service">Wondering what's currently playing on Sirius XM?  You're in the right place.</p>
-
-            <% if flash[:alert] %>
-                <p class="alert"><%= flash[:alert] %></p>
-            <% end %>
+            <p id="about-service">Wondering what's played on Sirius XM?  You're in the right place.</p>
 
             <%= render "layouts/search" %>
+
+             <% if flash[:alert] %>
+                <p class="alert"><%= flash[:alert] %></p>
+            <% end %>
 
             <%= yield %>
         </div>

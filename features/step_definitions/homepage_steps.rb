@@ -23,10 +23,14 @@ When /^I click the link for channel "(.*?)"$/ do |channel_number|
 end
 
 
-Then /^I should be able to see details about the application$/ do
+Then /^I should see details about the application$/ do
   	page.should have_css('h1', text:"SpotXM")
   	page.should have_css('title', text:"SpotXM")
   	page.should have_css('#about-service')
+end
+
+Then /^I should see be able to search for tracks and channels$/ do
+	page.should have_css('form', text:"Search for a track or channel")
 end
 
 Then /^I should see information on the following tracks:$/ do |tracks_table| 	

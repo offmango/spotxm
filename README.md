@@ -2,6 +2,21 @@
 
 An app to pull the now-playing data from Sirius XM and provide Spotify links for the songs.  It uses a Postgres database with Sphinx for searching.
 
+
+## Solr and Sunspot notes
+
+To start Solr:
+
+	bundle exec rake sunspot:solr:start
+
+...and to stop it (obviously):
+
+	bundle exec rake sunspot:solr:stop
+
+To reindex all object (only needed if you changes to an object's 'searchable' schema):
+
+	bundle exec rake sunspot:solr:reindex
+
 ## Development Notes
 
 Thinking Sphinx must be running when running the app in development. 
