@@ -35,7 +35,7 @@
 						<td><%= track.album_name %> <%= link_to(image_tag('spotify.png', :size=> "16x16"), spotify_link("album", track), :target=>"_blank") if track.album_name.present? %></td>
 						<td><%= link_to track.channel.channel_number, track.channel, :id => "channel_link_#{track.channel.channel_number}" %></td>
 						<td><%= link_to track.channel.channel_name, track.channel %></td>
-						<td><%= l track.played_at %></td>
+						<td><%= l track.played_at if track.played_at.present? %></td>
 					</tr>
 				<% end %>
 			</tbody>
