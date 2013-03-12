@@ -15,6 +15,7 @@ gem 'graylog2_exceptions', :git => 'git://github.com/wr0ngway/graylog2_exception
 gem 'graylog2-resque'
 gem 'rubber'
 gem 'sidekiq'
+gem 'clockwork'
 
 # You know, for search!
 # gem "thinking-sphinx"#, '2.0.10'#'3.0.0', :git => 'git://github.com/pat/thinking-sphinx.git'

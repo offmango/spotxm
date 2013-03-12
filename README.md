@@ -2,8 +2,16 @@
 
 An app to pull the now-playing data from Sirius XM and provide Spotify links for the songs.  It uses a Postgres database with Sphinx for searching.
 
+To regularly (every 2 minutes) pull the Sirius XM timestamp, there's a Sidekiq (which is backed by Redis) worker that is run by Clockwork.  This worker gets the current playlist and saves it to the database, then rebuilds the search indices if needed.  So, to run the app, you need to:
 
-## Solr and Sunspot notes
+1. Start Solr
+2. Start Redis
+3. Start Sidekiq
+4. Start Clockwork
+
+Instructions on each are below.
+
+## Solr and Sunspot
 
 To start Solr:
 
@@ -17,7 +25,29 @@ To reindex all object (only needed if you changes to an object's 'searchable' sc
 
 	bundle exec rake sunspot:solr:reindex
 
+
+## Redis
+
+To launch Redis (after installing it with Homebrew)
+
+	redis-server /usr/local/etc/redis.conf
+	
+## Sidekiq
+
+To start Sidekiq
+
+	bundle exec sidekiq
+
+## Clockwork
+
+To start clockwork
+
+	clockwork lib/clockwork.rb
+
+
 ## Development Notes
+
+<!-- I moved from Thinking Sphinx to Solr, so these are old notes
 
 Thinking Sphinx must be running when running the app in development. 
 
@@ -81,7 +111,7 @@ Also, maybe because I'm using Postgres with Database Cleaner, I had to set this 
 
 Note that's *:truncation* and not *:transaction*.  It took me ages to figure out why my TS searches were returning no results, and that was apparently it.
 
-
+ -->
 
 ## Outstanding Issues / To Dos
 
