@@ -9,11 +9,11 @@ gem 'nokogiri'
 gem 'jquery-rails'
 gem "thin"
 
-gem 'open4'
-gem 'gelf'
-gem 'graylog2_exceptions', :git => 'git://github.com/wr0ngway/graylog2_exceptions.git'
-gem 'graylog2-resque'
-gem 'rubber'
+# gem 'open4'
+# gem 'gelf'
+# gem 'graylog2_exceptions', :git => 'git://github.com/wr0ngway/graylog2_exceptions.git'
+# gem 'graylog2-resque'
+# gem 'rubber'
 gem 'sidekiq'
 gem 'clockwork'
 
@@ -34,7 +34,7 @@ group :assets do
   gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
   gem "twitter-bootstrap-rails"
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  gem 'therubyracer', :platforms => :ruby  # for Rubber
+  # gem 'therubyracer', :platforms => :ruby  # for Rubber
   gem 'uglifier', '>= 1.0.3'
 end
 
