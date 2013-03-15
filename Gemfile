@@ -21,7 +21,7 @@ gem 'clockwork'
 # gem "thinking-sphinx"#, '2.0.10'#'3.0.0', :git => 'git://github.com/pat/thinking-sphinx.git'
 # gem 'mysql2' # Thinking Sphinx now requires it
 
-gem 'sunspot_rails'
+gem 'sunspot_rails', '~> 1.3.0'
 gem 'sunspot_solr'
 gem 'progress_bar'
   

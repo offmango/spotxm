@@ -1,8 +1,9 @@
-production:
-  solr:
-    hostname: localhost
-    port: 8983
-    log_level: WARNING
+# Heroku should take care of production
+# production:
+#   solr:
+#     hostname: localhost
+#     port: 8983
+#     log_level: WARNING
 
 development:
   solr:
