@@ -38,10 +38,11 @@ test:
   database: spotxm_test
   pool: 5
   host: localhost
-# production:
-#   adapter: postgresql
-#   encoding: unicode
-#   database: spotxm_production
-#   pool: 5
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: spotxm_production
+  pool: 5
 #   username: spoxtm
 #   password:
