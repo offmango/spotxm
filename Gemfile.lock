@@ -123,6 +123,7 @@ GEM
     mocha (0.10.5)
       metaclass (~> 0.0.1)
     multi_json (1.6.1)
+    newrelic_rpm (3.5.8.72)
     nokogiri (1.5.6)
     options (2.3.0)
       fattr
@@ -259,6 +260,7 @@ DEPENDENCIES
   jquery-rails
   less-rails
   libv8 (~> 3.11.8)
+  newrelic_rpm
   nokogiri
   pg
   progress_bar

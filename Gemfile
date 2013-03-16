@@ -9,18 +9,11 @@ gem 'nokogiri'
 gem 'jquery-rails'
 gem "thin"
 
-# gem 'open4'
-# gem 'gelf'
-# gem 'graylog2_exceptions', :git => 'git://github.com/wr0ngway/graylog2_exceptions.git'
-# gem 'graylog2-resque'
-# gem 'rubber'
 gem 'sidekiq'
 gem 'clockwork'
+gem 'newrelic_rpm'
 
 # You know, for search!
-# gem "thinking-sphinx"#, '2.0.10'#'3.0.0', :git => 'git://github.com/pat/thinking-sphinx.git'
-# gem 'mysql2' # Thinking Sphinx now requires it
-
 gem 'sunspot_rails', '~> 1.3.0'
 gem 'sunspot_solr'
 gem 'progress_bar'
