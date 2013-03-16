@@ -1,3 +1,6 @@
+# For Redis to Go on Heroku
+ENV["REDISTOGO_URL"] = 'redis://redistogo:4d29b3d7f03a6d2617e355f4e05170e1@cod.redistogo.com:10059/' 
+
 Spotxm::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 

@@ -16,6 +16,7 @@
     <% end %>
 	
 	<% if @tracks.present? %>
+		<%= paginate @tracks %>
 		<table id="track_listing">
 			<thead>
 				<tr>

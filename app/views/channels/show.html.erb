@@ -4,6 +4,7 @@
 </div>
 
 <% if @tracks.present? %>
+	<%= paginate @tracks %>
 	<table id="track_listing">
 		<thead>
 			<tr>
@@ -26,7 +27,7 @@
 						<%= track.album_name %> <%= link_to(image_tag('spotify.png', :size=> "16x16"), spotify_link("album", track), :target=>"_blank") if track.album_name.present? %>
 					</td>
 					<td>
-						<%= l track.played_at %>
+						<%= l track.played_at if track.played_at.present? %>
 					</td>
 				</tr>
 			<% end %>

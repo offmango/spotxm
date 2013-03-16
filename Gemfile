@@ -17,6 +17,9 @@ gem 'newrelic_rpm'
 gem 'sunspot_rails', '~> 1.3.0'
 gem 'sunspot_solr'
 gem 'progress_bar'
+
+# Pagination
+gem 'kaminari'
   
 # Gems used only for assets and not required
 # in production environments by default.

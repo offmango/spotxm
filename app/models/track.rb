@@ -4,6 +4,9 @@ class Track < ActiveRecord::Base
 	
 	belongs_to :channel
 
+	# Pagination
+	paginates_per 25
+
 	# For Solr
 	searchable do
 		# fields

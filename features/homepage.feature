@@ -5,7 +5,7 @@ Feature: visit the home page
 
   Scenario: view the current playlist
 
- 	  When I view the homepage
+ 	When I view the homepage
   	
     Then I should see details about the application
     

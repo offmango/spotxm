@@ -6,7 +6,7 @@ class ChannelsController < ApplicationController
 
 	def show
 		@channel = Channel.find(params[:id])
-		@tracks = @channel.tracks
+		@tracks = @channel.tracks.page params[:page]
 	end
 
     def now_playing

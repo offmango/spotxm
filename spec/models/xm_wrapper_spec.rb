@@ -26,11 +26,11 @@ describe XMWrapper do
 	# 					}
 	# 				]
 	
-	context "#get_timestamp" do
-		it "returns the data from a sirius xm timestamp request" do
-			pending "argh"
-		end
-	end
+	# context "#get_timestamp" do
+	# 	it "returns the data from a sirius xm timestamp request" do
+	# 		pending "argh"
+	# 	end
+	# end
 
 
 	# context "#currently_playing" do
