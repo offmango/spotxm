@@ -189,17 +189,21 @@ describe Track do
 			})
 
 			Channel.stubs(:all).returns([bruce_channel, eighties_channel, country_channel, unused_channel])
-			bruce_channel.stubs(:most_recent_track).returns(atlantic_city)
-			eighties_channel.stubs(:most_recent_track).returns(magic)
-			country_channel.stubs(:most_recent_track).returns(dog)
-			unused_channel.stubs(:most_recent_track).returns(nil)
+			# bruce_channel.stubs(:most_recent_track).returns(atlantic_city)
+			# eighties_channel.stubs(:most_recent_track).returns(magic)
+			# country_channel.stubs(:most_recent_track).returns(dog)
+			# unused_channel.stubs(:most_recent_track).returns(nil)
+
+			search_result = OpenStruct.new(results: [atlantic_city, magic, dog])
+
+            Track.stubs(:search).returns(search_result)
 
 			most_recent_tracks = Track.most_recent
 
-			bruce_channel.should have_received(:most_recent_track)
-			eighties_channel.should	have_received(:most_recent_track)
-			country_channel.should have_received(:most_recent_track)
-			unused_channel.should have_received(:most_recent_track)
+			# bruce_channel.should have_received(:most_recent_track)
+			# eighties_channel.should	have_received(:most_recent_track)
+			# country_channel.should have_received(:most_recent_track)
+			# unused_channel.should have_received(:most_recent_track)
 
 			most_recent_tracks.size.should == 3
 			most_recent_tracks.should include(magic)

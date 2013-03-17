@@ -13,6 +13,7 @@ class Track < ActiveRecord::Base
 		text :track_name
 		text :artist_name
 		text :album_name
+		time :played_at
 	end
 
 
@@ -28,12 +29,13 @@ class Track < ActiveRecord::Base
 	end
 
 	def self.most_recent
-		most_recent_tracks = []
-		Channel.all.each do |channel| 
-			most_recent_track = channel.most_recent_track
-			most_recent_tracks << most_recent_track if most_recent_track.present?
-		end
-		most_recent_tracks
+		Track.search { with(:played_at).less_than(Time.now - 2.minutes) }.results
+		# most_recent_tracks = []
+		# Channel.all.each do |channel| 
+		# 	most_recent_track = channel.most_recent_track
+		# 	most_recent_tracks << most_recent_track if most_recent_track.present?
+		# end
+		# most_recent_tracks
 	end
 
 
