@@ -1,5 +1,5 @@
 <div id='channel_results'>
-	<h2>Channels</h2>
+	<h2><%= link_to "Channels", channels_path %></h2>
 	
 	<% if flash[:channel_alert] %>
     	<p class="alert"><%= flash[:channel_alert] %></p>

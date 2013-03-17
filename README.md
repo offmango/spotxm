@@ -115,7 +115,11 @@ Note that's *:truncation* and not *:transaction*.  It took me ages to figure out
 
 ## Outstanding Issues / To Dos
 
-* The timestamp call is currently not working from Heroku (and occasionally from local).  Not sure why.  For better testing, create a test page for doing the timestamp to see what's coming back
+Add time-specific searching for tracks
+
+Refactor lots of the view stuff into partials (like the track listing)
+<!-- * The timestamp call is currently not working from Heroku (and occasionally from local).  Not sure why.  For better testing, create a test page for doing the timestamp to see what's coming back
 * Links to Echo Nest?
 
 * Fix timestamp call to account for daylight savings
+ -->

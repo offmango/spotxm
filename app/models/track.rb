@@ -29,7 +29,7 @@ class Track < ActiveRecord::Base
 	end
 
 	def self.most_recent
-		Track.search { with(:played_at).greater_than(Time.now - 2.minutes) }.results
+		Track.search { with(:played_at).greater_than(Time.now - 3.minutes) }.results
 		# most_recent_tracks = []
 		# Channel.all.each do |channel| 
 		# 	most_recent_track = channel.most_recent_track
