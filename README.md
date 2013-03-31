@@ -38,6 +38,12 @@ To start Sidekiq
 
 	bundle exec sidekiq
 
+To flush the Sidekiq queue (from rails console on Heroku):
+	
+	Heroku run rails console
+
+	Sidekiq.redis {|r| r.flushall }
+
 ## Clockwork
 
 To start clockwork
@@ -116,6 +122,8 @@ Note that's *:truncation* and not *:transaction*.  It took me ages to figure out
 ## Outstanding Issues / To Dos
 
 Add time-specific searching for tracks
+
+Sometimes most_recent tracks comes up blank.  
 
 Refactor lots of the view stuff into partials (like the track listing)
 <!-- * The timestamp call is currently not working from Heroku (and occasionally from local).  Not sure why.  For better testing, create a test page for doing the timestamp to see what's coming back

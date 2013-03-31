@@ -19,7 +19,7 @@ class Track < ActiveRecord::Base
 
 	def self.now_playing(time = Time.now)
 		timestamp_data = XMWrapper.get_timestamp
-		return timestamp_data if timestamp_data.kind_of?(String)
+		return {} if timestamp_data.kind_of?(String)
 		convert_timestamp_to_tracks(timestamp_data)
 	end
 	

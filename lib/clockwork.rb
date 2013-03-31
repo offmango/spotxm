@@ -8,7 +8,7 @@ module Clockwork
 
 	handler do |job|
   		puts "Running #{job}"
-		end
+	end
 
 	every 2.minutes, 'track_worker.perform_async' do
    		TrackWorker.perform_async
