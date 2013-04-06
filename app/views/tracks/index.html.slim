@@ -32,14 +32,14 @@ div#track_results
 				- @tracks.each do |track|
 					tr.track_info
 						td 
-							= track.track_name 
-							= link_to image_tag('spotify.png', :size=> "16x16"), spotify_link("track", track), :target=>"_blank" if track.track_name.present?
+							= track.track_name + " "
+							= link_to image_tag('spotify.png', :size=> "12x12"), spotify_link("track", track), :target=>"_blank" if track.track_name.present?
 						td
-							= track.artist_name
-							= link_to image_tag('spotify.png', :size=> "16x16"), spotify_link("artist", track), :target=>"_blank" if track.artist_name.present?
+							= track.artist_name + " "
+							= link_to image_tag('spotify.png', :size=> "12x12"), spotify_link("artist", track), :target=>"_blank" if track.artist_name.present?
 						td
-							= track.album_name
-							= link_to image_tag('spotify.png', :size=> "16x16"), spotify_link("album", track), :target=>"_blank" if track.album_name.present?
+							= track.album_name + " "
+							= link_to image_tag('spotify.png', :size=> "12x12"), spotify_link("album", track), :target=>"_blank" if track.album_name.present?
 						td
 							= link_to track.channel.channel_number, track.channel, :id => "channel_link_#{track.channel.channel_number}"
 						td

@@ -1,0 +1,19 @@
+doctype html
+html
+	head
+		title SpotXM
+		= stylesheet_link_tag "application", :media => "all"
+		= javascript_include_tag "application"
+		= csrf_meta_tags
+
+	body
+		div.container
+			h1 = link_to "SpotXM", root_path
+			p.about-service Wondering what's played on Sirius XM?  You're in the right place.
+
+			= render "layouts/search"
+
+			- if flash[:alert]
+				p.alert = flash[:alert]
+
+			= yield

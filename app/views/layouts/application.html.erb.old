@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>SpotXM</title>
+        <!-- Bootstrap-->
+        <%= stylesheet_link_tag    "application", :media => "all" %>
+        <%= javascript_include_tag "application" %>
+        <%= csrf_meta_tags %>
+    </head>
+
+	<body>
+
+        <%-# render "layouts/navbar" -%>
+
+        <div class="container">
+            <h1><%= link_to "SpotXM", root_path %></h1>
+            <p id="about-service">Wondering what's played on Sirius XM?  You're in the right place.</p>
+
+            <%= render "layouts/search" %>
+
+             <% if flash[:alert] %>
+                <p class="alert"><%= flash[:alert] %></p>
+            <% end %>
+
+            <%= yield %>
+        </div>
+        
+
+	</body>
+</html>
