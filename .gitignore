@@ -28,4 +28,4 @@
 /config/rubber/rubber.yml
 
 # Ignore database dumps
-/latest.dump
+/*.dump
