@@ -12,6 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.ui.datepicker
 //= require twitter/bootstrap
 //= require_tree .
 // require vendor/modernizr
+
+$(function() {
+    	$("#search_start_time").datepicker();
+});

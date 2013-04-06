@@ -7,6 +7,7 @@ gem 'pg'
 
 gem 'nokogiri'
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 gem "thin"
 
 gem 'sidekiq'
@@ -20,6 +21,9 @@ gem 'progress_bar'
 
 # Pagination
 gem 'kaminari'
+
+# All the cool kids are doing it
+gem 'slim'
   
 # Gems used only for assets and not required
 # in production environments by default.

@@ -1,3 +1,5 @@
+# GIVEN
+
 Given /^the (\w+) indexes are processed$/ do |model|
 	model = model.titleize.gsub(/\s/, '').constantize
 	puts "Processing #{model} index"
@@ -6,18 +8,28 @@ Given /^the (\w+) indexes are processed$/ do |model|
 end
 
 Given /^the following tracks are in the database:$/ do |tracks_table|
-	#Track.all.each { |track| track.delete }
-  	#Channel.all.each { |channel| channel.delete }
 	tracks_table.hashes.each do |track_hash| 
 		channel = Channel.find_or_create_by_channel_number(track_hash[:channel_number])
 		channel.tracks.create(track_hash)
 	end
 end
 
+
+# WHEN
+
 When /^I search for "(.*?)"$/ do |search_term|
 	fill_in 'search', with: search_term
 	click_button 'Find'
 end
+
+When /^I search for tracks played between "(.*?)" and "(.*?)"$/ do |start_time, end_time|
+  	fill_in 'start_time', with: start_time
+  	fill_in 'end_time', with: end_time
+  	click_button 'Find'
+end
+
+
+#THEN
 
 Then /^I should see a list of the following channels:$/ do |channels_table|
 	within "div#channel_results" do

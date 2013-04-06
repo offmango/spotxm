@@ -64,5 +64,26 @@ Feature: Search
 
 		  	And I should see a list of the following channels:
 			| channel_number | channel_name     		  | description 					 |
-			| 3				 | "Neil Diamond Radio"   	  | "You know you love Neil Diamond" |		
+			| 3				 | "Neil Diamond Radio"   	  | "You know you love Neil Diamond" |
+
+	@search
+	Scenario: Search tracks by date and time played
+		Given the following tracks are in the database:	
+			| track_name 	  | artist_name 		| album_name           			 | played_at	  			 |
+	  		| "Atlantic City" | "Bruce Springsteen" | "Darkness on the Edge of Town" | 2013-03-18 09:00:00 -0400 |
+	  		| "Ramrod"		  | "Bruce Springsteen" | "The River"					 | 2013-03-19 09:30:41 -0400 |
+			| "My Dog"		  | "Garth Brooks"		| "Songs for My Dog"			 | 2013-03-17 09:12:35 -0400 |
+			| "This is 20"	  | "The Tweenies"		| "What Am I Doing?"			 | 2013-03-18 09:59:00 -0400 |
+			| "Some Song"     | "20 Degrees"    	| "Our New Album"				 | 2013-03-18 08:59:59 -0400 | 
+			| "It's a Hit"	  | "The Boy Band"		| "Our 20 Least Offensive Songs" | 2013-03-18 10:00:00 -0400 |
+
+		When I view the homepage
+
+			And I search for tracks played between "2013-03-18 09:00:00 -0400" and "2013-03-18 10:00:00 -0400"
+
+		Then I should see a list of the following tracks:
+			| "Atlantic City" | "Bruce Springsteen" | "Darkness on the Edge of Town" | 2013-03-18 09:00:00 -0400 |
+			| "This is 20"	  | "The Tweenies"		| "What Am I Doing?"			 | 2013-03-18 09:59:00 -0400 |
+			| "It's a Hit"	  | "The Boy Band"		| "Our 20 Least Offensive Songs" | 2013-03-18 10:00:00 -0400 |
+
 
