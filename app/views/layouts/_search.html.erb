@@ -1,7 +1,0 @@
-<%= form_for :search, :url => tracks_path, method: :get do |search_form| %>
-	<%= search_form.label :search_params, "Search for a track or channel" %>
-	<%= search_form.text_field :search_params, :id => "search", :placeholder => @search_params || "Enter your search term" %>
-	<%= search_form.text_field :start_time %>
-	<%= search_form.text_field :end_time %> 
-	<%= search_form.submit 'Find' %>
-<% end %> 

@@ -26,3 +26,6 @@
 
 # Ignore rubber.yml (with the sekret info)
 /config/rubber/rubber.yml
+
+# Ignore database dumps
+/latest.dump

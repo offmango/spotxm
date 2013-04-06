@@ -121,6 +121,8 @@ Note that's *:truncation* and not *:transaction*.  It took me ages to figure out
 
 ## Outstanding Issues / To Dos
 
+* Why does most recent sometimes come up blank?
+
 Add Sidekiq interface so you can check the queue, make sure workers are stacking up.
 
 Confirm that workers are failing quietly and not hammering the Sirius XM servers.
@@ -130,6 +132,12 @@ Add time-specific searching for tracks
 Sometimes most_recent tracks comes up blank.  
 
 Refactor lots of the view stuff into partials (like the track listing)
+
+jbuilder? memcache?
+
+Google analytics
+
+Make tables sortable
 
 
 <!-- * The timestamp call is currently not working from Heroku (and occasionally from local).  Not sure why.  For better testing, create a test page for doing the timestamp to see what's coming back
