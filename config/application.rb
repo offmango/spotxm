@@ -67,5 +67,9 @@ module Spotxm
 
     # Trying to fix heroku precompile errors
     config.assets.precompile += %w( *.js *.css )
+
+    # As recommended by Devise for Heroku deployment
+    config.assets.initialize_on_precompile = false
+  
   end
 end

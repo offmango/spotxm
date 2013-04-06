@@ -13,7 +13,9 @@ html
 
 			= render "layouts/search"
 
-			- if flash[:alert]
-				p.alert = flash[:alert]
+			- if alert
+				p.alert = alert
+			- if notice
+				p.notice = notice
 
 			= yield

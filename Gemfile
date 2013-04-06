@@ -11,6 +11,7 @@ gem 'jquery-ui-rails'
 gem "thin"
 
 gem 'sidekiq'
+gem 'sinatra', require: false # for sidekiq admin
 gem 'clockwork'
 gem 'newrelic_rpm'
 
@@ -24,6 +25,9 @@ gem 'kaminari'
 
 # All the cool kids are doing it
 gem 'slim'
+
+# Authentication
+gem 'devise'
   
 # Gems used only for assets and not required
 # in production environments by default.
