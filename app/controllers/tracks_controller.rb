@@ -1,6 +1,7 @@
 class TracksController < ApplicationController
 
 	def index
+		binding.pry
 		if params[:search].present? and params[:search][:search_params].present?
 			@search_params = params[:search][:search_params]
 		 	results = Track.search { fulltext params[:search][:search_params] }.results

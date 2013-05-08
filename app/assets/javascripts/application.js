@@ -13,10 +13,22 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.ui.datepicker
+//= require bootstrap-datetimepicker.min
+//= require bootstrap
 //= require twitter/bootstrap
-//= require_tree .
-// require vendor/modernizr
+
+
 
 $(function() {
-    	$("#search_start_time").datepicker();
+    $('#search_start_time').datetimepicker({
+      language: 'en',
+      pick12HourFormat: true
+    });
+});
+
+$(function() {
+    $('#search_end_time').datetimepicker({
+      language: 'en',
+      pick12HourFormat: true
+    });
 });

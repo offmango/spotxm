@@ -1,6 +1,13 @@
-= form_for :search, :url => tracks_path, method: :get do |search_form| 
-	= search_form.label :search_params, "Search for a track or channel"
-	= search_form.text_field :search_params, :id => "search", :placeholder => @search_params || "Enter your search term"
-	= search_form.text_field :start_time
-	= search_form.text_field :end_time
-	= search_form.submit 'Find'
+div.well
+	= simple_form_for :search, :url => tracks_path, method: :get do |search_form| 
+		= search_form.label :search_params, "Search for a track or channel"
+		= search_form.text_field :search_params, :id => "search", :placeholder => @search_params || "Enter your search term"
+		div id="search_start_time" class="input-append"
+			= search_form.input :start_time, input_html: { "data-format" =>"MM/dd/yyyy HH:mm:ss PP",  "type" => "text" }
+			span.add-on
+				i data-time-icon="icon-time" data-date-icon="icon-calendar"
+		div id="search_end_time" class="input-append"
+			= search_form.input :end_time, input_html: { "data-format" =>"MM/dd/yyyy HH:mm:ss PP",  "type" => "text" }
+			span.add-on
+				i data-time-icon="icon-time" data-date-icon="icon-calendar"
+		= search_form.submit 'Find'
