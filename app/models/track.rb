@@ -38,6 +38,50 @@ class Track < ActiveRecord::Base
 		# most_recent_tracks
 	end
 
+	def self.build_sunspot_query(params)
+		conditions = Track.build_search_conditions(params)
+  		condition_procs = conditions.map{|c| Track.build_condition c}
+  		Sunspot.search(Track) do
+    		condition_procs.each{|c| instance_eval &c}
+  		end
+	end
+
+	def self.build_search_conditions(params)
+		conditions = []
+		conditions << { fulltext: params[:search_params] } if params[:search_params].present?
+		conditions << { start_time: Time.strptime(params[:start_time], "%m/%d/%Y %I:%M:%S %p") } if params[:start_time].present?
+		conditions << { end_time: Time.strptime(params[:end_time], "%m/%d/%Y %I:%M:%S %p") } if params[:end_time].present?
+		conditions
+	end
+
+	def self.build_condition(condition)
+		case 
+		when condition.has_key?(:fulltext)
+  			Proc.new do
+    			fulltext condition[:fulltext]
+    		end
+    	when condition.has_key?(:start_time)
+    		Proc.new do
+    			with(:played_at).greater_than condition[:start_time]
+    		end
+    	when condition.has_key?(:end_time)
+    		Proc.new do
+    			with(:played_at).less_than condition[:end_time]
+    		end
+  		end
+	end
+
+	def self.build_search_block(conditions)
+
+
+		# results = Track.search { 
+		#  							fulltext params[:search][:search_params] 
+		#  							with(:played_at).greater_than params[:search][:start_time].to_time
+		#  							with(:played_at).less_than params[:search][:end_time].to_time
+		#  							}.results
+	end
+
+
 
 	private
 

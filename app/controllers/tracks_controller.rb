@@ -1,10 +1,9 @@
 class TracksController < ApplicationController
 
 	def index
-		binding.pry
-		if params[:search].present? and params[:search][:search_params].present?
+		if params[:search].present? #and params[:search][:search_params].present?
 			@search_params = params[:search][:search_params]
-		 	results = Track.search { fulltext params[:search][:search_params] }.results
+		 	results = Track.build_sunspot_query(params[:search]).results
 		 	@tracks = Kaminari.paginate_array(results).page(params[:page])
 		 	flash.now[:track_alert] = "No tracks found for '#{@search_params}'" if @tracks.blank?
 		 	@channels = Channel.channel_search(params[:search][:search_params])
@@ -21,3 +20,4 @@ class TracksController < ApplicationController
 	end
 
 end
+
