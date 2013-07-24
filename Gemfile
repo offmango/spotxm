@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.12'
+gem 'rails', '4.0.0'
 
 # Postgres
 gem 'pg'
@@ -36,8 +36,8 @@ gem 'simple_form'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
+  gem 'sass-rails' #,   '~> 3.2.3'
+  gem 'coffee-rails' #, '~> 3.2.1'
   gem 'libv8', '~> 3.11.8' # for therubyracer
   gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
   gem "twitter-bootstrap-rails"
